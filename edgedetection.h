@@ -17,10 +17,14 @@ public:
 
     void findTriangle();
     void findCircle();
-
+    void findStop();
 private:
-    void drawStuff();
+    void triangle();
     void drawAllTriangles(Mat& img, const vector< vector<Point> >& contours);
+
+    void stop();
+    void drawStopSign(Mat& img, const vector< vector<Point> >& contours);
+
 };
 
 #endif // EDGEDETECTION_H

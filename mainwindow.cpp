@@ -20,8 +20,9 @@ MainWindow::MainWindow(QWidget *parent) :
     EdgeDetection work;
     ui->setupUi(this);
 
-    work.findCircle();
-    work.findTriangle();
+    //work.findCircle();
+    //work.findTriangle();
+    work.findStop();
 }
 
 
