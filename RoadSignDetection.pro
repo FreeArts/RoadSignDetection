@@ -25,7 +25,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    edgedetection.cpp
 
 INCLUDEPATH += /usr/local/include/opencv2/opencv
 
@@ -35,7 +36,8 @@ LIBS += -L/usr/local/lib -lopencv_dnn -lopencv_ml -lopencv_objdetect -lopencv_sh
 
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    edgedetection.h
 
 FORMS += \
         mainwindow.ui
