@@ -37,7 +37,7 @@ void EdgeDetection::findCircle()
     //imshow("gaus?",src_gray);
 
     vector<Vec3f> circles;
-    HoughCircles( src_gray, circles, HOUGH_GRADIENT, 1, src_gray.rows/8, 200, 100, 0, 0 ); //???
+    HoughCircles( src_gray, circles, HOUGH_GRADIENT, 1, src_gray.rows/8, 200, 100, 0, 0 ); //?r
 
     for( size_t i = 0; i < circles.size(); i++ )
       {
