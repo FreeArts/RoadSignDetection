@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <iostream>
 
-#include "edgedetection.h"
+#include "objectdetector.h"
 
 using namespace cv;
 using namespace std;
@@ -17,12 +17,10 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    EdgeDetection work;
     ui->setupUi(this);
 
-    work.findCircle();
-    work.findTriangle();
-    work.findStop();
+    ObjectDetector detector;
+    detector.run();
 }
 
 

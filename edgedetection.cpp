@@ -12,9 +12,9 @@ EdgeDetection::EdgeDetection()
 
 }
 
-void EdgeDetection::findTriangle()
+void EdgeDetection::findTriangle(QString src_path)
 {
-    img_rgb  = imread("/home/freeart/git/RoadSignDetection/traffic-signs.jpg");
+    img_rgb  = imread(src_path.toStdString());
     //img_rgb = imread("/home/freeart/test/triangle_circle.jpg");
     cvtColor(img_rgb,img_gray,COLOR_RGB2GRAY);
     imshow("InputImage",img_rgb);
@@ -22,22 +22,22 @@ void EdgeDetection::findTriangle()
     waitKey(0);
 }
 
-void EdgeDetection::findCircle()
+void EdgeDetection::findCircle(QString src_path)
 {
     Mat src, src_gray;
 
     /// Read the image
-    src = imread("/home/freeart/git/RoadSignDetection/traffic-signs.jpg");
+    src = imread(src_path.toStdString());
     //imshow("original",src);
 
     cvtColor( src, src_gray, COLOR_BGR2GRAY );
     //imshow("gray?",src_gray);
 
-    GaussianBlur( src_gray, src_gray, Size(9, 9), 3, 3 ); //???
+    GaussianBlur( src_gray, src_gray, Size(9, 9), 3, 3 );
     //imshow("gaus?",src_gray);
 
     vector<Vec3f> circles;
-    HoughCircles( src_gray, circles, HOUGH_GRADIENT, 1, src_gray.rows/8, 200, 100, 0, 0 ); //?r
+    HoughCircles( src_gray, circles, HOUGH_GRADIENT, 1, src_gray.rows/8, 200, 100, 0, 0 );
 
     for( size_t i = 0; i < circles.size(); i++ )
       {
@@ -54,9 +54,9 @@ void EdgeDetection::findCircle()
     waitKey(0);
 }
 
-void EdgeDetection::findStop()
+void EdgeDetection::findStop(QString src_path)
 {
-    img_rgb  = imread("/home/freeart/git/RoadSignDetection/stop.jpg");
+    img_rgb  = imread(src_path.toStdString());
     cvtColor(img_rgb,img_gray,COLOR_RGB2GRAY);
     imshow("InputImage",img_rgb);
     stop();
@@ -69,7 +69,7 @@ void EdgeDetection::stop()
     vector<vector<Point> > contours;
     vector<Vec4i> hierarchy;
 
-    Canny( img_gray, canny_output, thresh, thresh*2, 3 ); //??
+    Canny( img_gray, canny_output, thresh, thresh*2, 3 );
     imshow("Canny",canny_output);
     findContours( canny_output, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0) );
     drawing = Mat::zeros( canny_output.size(), CV_8UC3 );
